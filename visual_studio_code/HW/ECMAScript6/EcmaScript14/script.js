@@ -49,19 +49,20 @@ console.log('====================')
 
 // У вас есть массив объектов, представляющих студентов с именами и их средним баллом.
 const students = [
-  { name: 'Анна', grades: 80 },
+  { name: 'Анна', grades: 55 },
   { name: 'Иван', grades: 70 },
-  { name: 'Мария', grades: 79 },
+  { name: 'Мария', grades: 80 },
 ]
 // Найдите первого студента со средним баллом выше 80.
-// Если такой студент не найден, добавьте нового студента в начало массива с баллом 85, используя unshift.
 const foundStudent = students.find(item => item.grades > 80)
+
+// Если такой студент не найден, добавьте нового студента в начало массива с баллом 85, используя unshift.
 if (!foundStudent) {
   students.unshift({ name: 'Muhammad', grades: 85 })
 }
 
 // Верните обновленный массив студентов.
-console.log(students)
+console.log(foundStudent || students)
 
 console.log('====================')
 
@@ -81,15 +82,77 @@ const filterCart = cart
   .reduce((a, b) => a + b)
 console.log(filterCart)
 
-// У вас есть массив объектов, представляющих задачи с их названиями и статусом (completed: true/false).
+console.log('====================')
 
+// У вас есть массив объектов, представляющих задачи с их названиями и статусом (completed: true/false).
+const aufgaben = [
+  { aufgabe: 'kaufen Motorsäge', completed: true },
+  { aufgabe: 'eat Potato', completed: true },
+  { aufgabe: 'trink Apfelsaft', completed: true },
+  { aufgabe: 'Laptop arbeit', completed: true },
+  { aufgabe: 'Nudel lunch', completed: true },
+]
 // Отфильтруйте задачи, которые еще не выполнены (completed: false).
-// С помощью map создайте массив, содержащий только названия этих задач.
+const filterAufgaben = aufgaben
+  .filter(item => item.completed == false)
+  // С помощью map создайте массив, содержащий только названия этих задач.
+  .map(item => item.aufgabe)
 // Если массив незавершенных задач пустой, добавьте новую задачу в начало исходного массива с помощью unshift.
+if (filterAufgaben.length == 0) {
+  aufgaben.unshift({ aufgabe: 'go to the toilet', completed: false })
+  console.log(aufgaben)
+} else {
+  console.log(filterAufgaben)
+}
+
+console.log('====================')
 
 // У вас есть массив объектов, представляющих студентов с их именами и оценками (массив чисел).
-
+const student2 = [
+  { studentName: 'Vasya', punkt: [90, 75, 72, 67, 41, 93, 63, 92] },
+  { studentName: 'Eugene', punkt: [45, 55, 72, 71, 58, 55, 23, 92] },
+  { studentName: 'Adil', punkt: [51, 55, 72, 10, 45, 91, 23, 92] },
+  { studentName: 'Alex', punkt: [21, 55, 72, 60, 49, 62, 83, 92] },
+  { studentName: 'Luxa', punkt: [80, 95, 72, 63, 73, 94, 53, 92] },
+]
 // Используя map, для каждого студента подсчитайте его средний балл и добавьте это значение как новое свойство averageScore.
-// С помощью filter оставьте только тех студентов, у которых средний балл выше 70.
+const newStudents = student2
+  .map(item => {
+    item.averageScore = Math.round(
+      item.punkt.reduce((a, b) => a + b) / item.punkt.length
+    )
+    return item
+  })
+  // С помощью filter оставьте только тех студентов, у которых средний балл выше 70.
+  .filter(item => item.averageScore > 70)
 // С помощью reduce найдите средний балл среди отфильтрованных студентов.
+const result =
+  newStudents.reduce((a, b) => a + b.averageScore, 0) / newStudents.length
 // Создавайте массив самостоятельно!
+console.log(result)
+
+console.log('====================')
+
+const student3 = [
+  { studentName: 'Vasya', punkt: [90, 75, 72, 67, 41, 93, 63, 92] },
+  { studentName: 'Eugene', punkt: [45, 55, 72, 71, 58, 55, 23, 92] },
+  { studentName: 'Adil', punkt: [51, 55, 72, 10, 45, 91, 23, 92] },
+  { studentName: 'Alex', punkt: [21, 55, 72, 60, 49, 62, 83, 92] },
+  { studentName: 'Luxa', punkt: [80, 95, 72, 63, 73, 94, 53, 92] },
+]
+
+const totalAverageScore = student3
+  .map(student => {
+    student.averageScore = Math.round(
+      student.punkt.reduce((sum, score) => sum + score, 0) /
+        student.punkt.length
+    )
+    return student
+  })
+  .filter(student => student.averageScore > 70)
+  .reduce(
+    (sum, student, _, array) => sum + student.averageScore / array.length,
+    0
+  )
+
+console.log(totalAverageScore)
