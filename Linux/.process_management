@@ -1,0 +1,40 @@
+Mon Oct 21 17:37:15 UTC 2024
+Welcome to Amazon server
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/xvda1       20G   13G  7.8G  62% /
+              total        used        free      shared  buff/cache   available
+Mem:           952M        201M        396M        636K        355M        595M
+Swap:            0B          0B          0B
+91
+MUHAMMAD_VARIABLE=090924-wdm
+  PID  PPID CMD
+15512 27227 sshd: ec2-user [priv]
+15516 15512 sshd: ec2-user@pts/0
+16617 27227 sshd: ec2-user [priv]
+16620 16617 sshd: ec2-user@pts/1
+18168 27227 sshd: ec2-user [priv]
+18170 18168 sshd: ec2-user@pts/2
+21312 27227 sshd: ec2-user [priv]
+21314 21312 sshd: ec2-user@pts/3
+21342 27227 sshd: ec2-user [priv]
+21344 21342 sshd: ec2-user@pts/4
+21404 27227 sshd: ec2-user [priv]
+21406 21404 sshd: ec2-user@pts/5
+21467 27227 sshd: ec2-user [priv]
+21470 21467 sshd: ec2-user@pts/6
+27227     1 /usr/sbin/sshd -D
+PID 15512 PPID 27227
+PID 15516 PPID 15512
+PID 16617 PPID 27227
+PID 16620 PPID 16617
+PID 18168 PPID 27227
+PID 18170 PPID 18168
+PID 21312 PPID 27227
+PID 21314 PPID 21312
+PID 21342 PPID 27227
+PID 21344 PPID 21342
+PID 21404 PPID 27227
+PID 21406 PPID 21404
+PID 21467 PPID 27227
+PID 21470 PPID 21467
+PID 27227 PPID 1
